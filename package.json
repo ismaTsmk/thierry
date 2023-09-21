@@ -1,0 +1,15 @@
+{
+  "name": "mongodblevelup",
+  "version": "1.0.0",
+  "description": "thery ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ismael",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.2"
+  }
+}
