@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const usersRouter  = require('./routes/user');
-
+const gamesRouter = require('./routes/gamesRoutes');
+const customersRouter = require('./routes/customersRoutes');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,7 +21,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/local')
   });
 
 // Utilisation des routes utilisateur
+
 app.use('/api/users', usersRouter);
+// Utilisez les routes des jeux vidéo et des comptes clients
+app.use('/api/games', gamesRouter);
+app.use('/api/customers', customersRouter);
 
 // Gestion des erreurs 404
 app.use((req, res, next) => {
@@ -29,7 +34,7 @@ app.use((req, res, next) => {
 
 // Gestion des erreurs globales
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  // console.error(err.stack);
   res.status(500).json({ error: 'Internal Server Error' });
 });
 
